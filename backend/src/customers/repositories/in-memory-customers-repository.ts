@@ -9,10 +9,6 @@ import { UpdateCustomerDTO } from "../dtos/update-customer-dto";
 export class InMemoryCustomersRepository implements CustomersRepository {
     private customers: ReturnCustomerDTO[] = []
 
-    clear() {
-        this.customers = []
-    }
-
     async create(data: CreateCustomerDTO): Promise<ReturnCustomerDTO | null> {
         const customer: ReturnCustomerDTO = {
             id: this.customers.length + 1,
