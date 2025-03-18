@@ -19,25 +19,26 @@ Além disso, você precisará de um arquivo `.env` com as variáveis de ambiente
    ```bash
    npm install
    ```
-- Crie o arquivo .env (copie o conteúdo do arquivo .env.example) 
-
-## Rodando migrations
-Se a variável de ambiente `ENV` estiver definida como `production`, o TypeORM não executará as alterações automaticamente no banco de dados. Nesse caso, é necessário rodar as migrations manualmente.
-
-Para executar as migrations em produção, utilize o seguinte comando:
-
-```bash
-npm run migration:run
-```
+- Crie o arquivo .env (copie o conteúdo do arquivo .env.example)
 
 ## Rodando a aplicação via CLI
 
 ### Dev
+Rodar PostgreSQL
+```bash
+docker-compose up --build -d postgres
+```
+Rodar API
 ```bash
 npm run start:dev
 ```
 
 ### Prod
+Rodar PostgreSQL
+```bash
+docker-compose up --build -d postgres
+```
+Rodar API
 ```bash
 npm run build
 npm run start:prod
@@ -46,6 +47,15 @@ npm run start:prod
 ## Rodando a aplicação com Docker e Docker Compose
 ```bash
 docker-compose up --build -d
+```
+
+## Rodando migrations
+Se a variável de ambiente `ENV` estiver definida como `production`, o TypeORM não executará as alterações automaticamente no banco de dados. Nesse caso, é necessário rodar as migrations manualmente.
+
+Para executar as migrations em produção, utilize o seguinte comando:
+
+```bash
+npm run migration:run
 ```
 
 ## Acessando a documentação
